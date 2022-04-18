@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "6ba17121-6b16-4fb5-ac2f-c0510c7ef91b",
+		"name": "Dummy API's",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all employee data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//status check\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/employees",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all employee data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://dummy.restapiexample.com/api/v1/employees",
+							"protocol": "http",
+							"host": [
+								"dummy",
+								"restapiexample",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employees"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private, max-age=31536000"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Jan 2022 08:24:48 GMT"
+						},
+						{
+							"key": "Display",
+							"value": "staticcontent_sol"
+						},
+						{
+							"key": "Expires",
+							"value": "Tue, 17 Jan 2023 08:24:46 GMT"
+						},
+						{
+							"key": "Host-Header",
+							"value": "c2hhcmVkLmJsdWVob3N0LmNvbQ=="
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": ""
+						},
+						{
+							"key": "Response",
+							"value": "200"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding,User-Agent,Origin"
+						},
+						{
+							"key": "X-Ezoic-Cdn",
+							"value": "Miss"
+						},
+						{
+							"key": "X-Middleton-Display",
+							"value": "staticcontent_sol"
+						},
+						{
+							"key": "X-Middleton-Response",
+							"value": "200"
+						},
+						{
+							"key": "X-Origin-Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-Ratelimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-Ratelimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "X-Server-Cache",
+							"value": "false"
+						},
+						{
+							"key": "X-Sol",
+							"value": "pub_site"
+						},
+						{
+							"key": "Content-Length",
+							"value": "631"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"employee_name\": \"Tiger Nixon\",\n            \"employee_salary\": 320800,\n            \"employee_age\": 61,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 2,\n            \"employee_name\": \"Garrett Winters\",\n            \"employee_salary\": 170750,\n            \"employee_age\": 63,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 3,\n            \"employee_name\": \"Ashton Cox\",\n            \"employee_salary\": 86000,\n            \"employee_age\": 66,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 4,\n            \"employee_name\": \"Cedric Kelly\",\n            \"employee_salary\": 433060,\n            \"employee_age\": 22,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 5,\n            \"employee_name\": \"Airi Satou\",\n            \"employee_salary\": 162700,\n            \"employee_age\": 33,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 6,\n            \"employee_name\": \"Brielle Williamson\",\n            \"employee_salary\": 372000,\n            \"employee_age\": 61,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 7,\n            \"employee_name\": \"Herrod Chandler\",\n            \"employee_salary\": 137500,\n            \"employee_age\": 59,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 8,\n            \"employee_name\": \"Rhona Davidson\",\n            \"employee_salary\": 327900,\n            \"employee_age\": 55,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 9,\n            \"employee_name\": \"Colleen Hurst\",\n            \"employee_salary\": 205500,\n            \"employee_age\": 39,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 10,\n            \"employee_name\": \"Sonya Frost\",\n            \"employee_salary\": 103600,\n            \"employee_age\": 23,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 11,\n            \"employee_name\": \"Jena Gaines\",\n            \"employee_salary\": 90560,\n            \"employee_age\": 30,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 12,\n            \"employee_name\": \"Quinn Flynn\",\n            \"employee_salary\": 342000,\n            \"employee_age\": 22,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 13,\n            \"employee_name\": \"Charde Marshall\",\n            \"employee_salary\": 470600,\n            \"employee_age\": 36,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 14,\n            \"employee_name\": \"Haley Kennedy\",\n            \"employee_salary\": 313500,\n            \"employee_age\": 43,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 15,\n            \"employee_name\": \"Tatyana Fitzpatrick\",\n            \"employee_salary\": 385750,\n            \"employee_age\": 19,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 16,\n            \"employee_name\": \"Michael Silva\",\n            \"employee_salary\": 198500,\n            \"employee_age\": 66,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 17,\n            \"employee_name\": \"Paul Byrd\",\n            \"employee_salary\": 725000,\n            \"employee_age\": 64,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 18,\n            \"employee_name\": \"Gloria Little\",\n            \"employee_salary\": 237500,\n            \"employee_age\": 59,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 19,\n            \"employee_name\": \"Bradley Greer\",\n            \"employee_salary\": 132000,\n            \"employee_age\": 41,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 20,\n            \"employee_name\": \"Dai Rios\",\n            \"employee_salary\": 217500,\n            \"employee_age\": 35,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 21,\n            \"employee_name\": \"Jenette Caldwell\",\n            \"employee_salary\": 345000,\n            \"employee_age\": 30,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 22,\n            \"employee_name\": \"Yuri Berry\",\n            \"employee_salary\": 675000,\n            \"employee_age\": 40,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 23,\n            \"employee_name\": \"Caesar Vance\",\n            \"employee_salary\": 106450,\n            \"employee_age\": 21,\n            \"profile_image\": \"\"\n        },\n        {\n            \"id\": 24,\n            \"employee_name\": \"Doris Wilder\",\n            \"employee_salary\": 85600,\n            \"employee_age\": 23,\n            \"profile_image\": \"\"\n        }\n    ],\n    \"message\": \"Successfully! All records has been fetched.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a single employee data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//status check\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//value check\r",
+							"pm.test(\"emloyee id =1\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"1\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://dummy.restapiexample.com/api/v1/employee/1",
+					"protocol": "http",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a single employee data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://dummy.restapiexample.com/api/v1/employee/1",
+							"protocol": "http",
+							"host": [
+								"dummy",
+								"restapiexample",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private, max-age=31536000"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Jan 2022 08:53:38 GMT"
+						},
+						{
+							"key": "Display",
+							"value": "staticcontent_sol"
+						},
+						{
+							"key": "Expires",
+							"value": "Tue, 17 Jan 2023 08:53:37 GMT"
+						},
+						{
+							"key": "Host-Header",
+							"value": "c2hhcmVkLmJsdWVob3N0LmNvbQ=="
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": ""
+						},
+						{
+							"key": "Response",
+							"value": "200"
+						},
+						{
+							"key": "Server",
+							"value": "nginx"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding,User-Agent,Origin"
+						},
+						{
+							"key": "X-Ezoic-Cdn",
+							"value": "Miss"
+						},
+						{
+							"key": "X-Middleton-Display",
+							"value": "staticcontent_sol"
+						},
+						{
+							"key": "X-Middleton-Response",
+							"value": "200"
+						},
+						{
+							"key": "X-Origin-Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-Ratelimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-Ratelimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "X-Server-Cache",
+							"value": "false"
+						},
+						{
+							"key": "X-Sol",
+							"value": "pub_site"
+						},
+						{
+							"key": "Content-Length",
+							"value": "179"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"employee_name\": \"Tiger Nixon\",\n        \"employee_salary\": 320800,\n        \"employee_age\": 61,\n        \"profile_image\": \"\"\n    },\n    \"message\": \"Successfully! Record has been fetched.\"\n}"
+				}
+			]
+		}
+	]
+}
