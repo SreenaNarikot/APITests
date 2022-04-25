@@ -6,16 +6,286 @@
 	},
 	"item": [
 		{
+			"name": "Integration Tests",
+			"item": [
+				{
+					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Create User\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"   pm.environment.set(\"id\", jsonData.id);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"SreenaINT\",\r\n    \"job\":  \"API Tester\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single User for int",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/12",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Crested User details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"SreenaUpdate\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"SreenaUpdate\",\r\n    \"job\": \"API Tester\",\r\n    \"id\": \"465\",\r\n    \"createdAt\": \"2022-04-24T06:58:09.003Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"SreenaUpdate\",\r\n    \"job\": \"API Tester\",\r\n    \"id\": \"465\",\r\n    \"createdAt\": \"2022-04-24T06:58:09.003Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://reqres.in/api/users/{{id}}",
+									"protocol": "https",
+									"host": [
+										"reqres",
+										"in"
+									],
+									"path": [
+										"api",
+										"users",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Apr 2022 15:11:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"50-P/w2w8aoPpu3qmHU6pHLW9yeEsg\""
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=6wJxbWz7hNV67r6ZywyNS0rxBi8UEjDb8APrORYRg8LT1Rh3h3afkBJM9EiIJ74tZkyuezsdRpqhU4E%2F3eLN%2F5vP3hVSQe6NfEEzmUWEbzlQ4OAQWZwCeO6fymM%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "6fe691faca2318e8-SIN"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"morpheus\",\n    \"job\": \"zion resident\",\n    \"updatedAt\": \"2022-04-19T15:11:00.626Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Updated user details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "List Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/users?page=2",
-					"protocol": "https",
+					"raw": "{{url}}/api/users?page=2",
 					"host": [
-						"reqres",
-						"in"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -36,11 +306,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://reqres.in/api/users?page=2",
-							"protocol": "https",
+							"raw": "{{url}}/api/users?page=2",
 							"host": [
-								"reqres",
-								"in"
+								"{{url}}"
 							],
 							"path": [
 								"api",
@@ -60,7 +328,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Tue, 19 Apr 2022 14:54:03 GMT"
+							"value": "Wed, 20 Apr 2022 01:45:36 GMT"
 						},
 						{
 							"key": "Content-Type",
@@ -100,7 +368,7 @@
 						},
 						{
 							"key": "Age",
-							"value": "5588"
+							"value": "3000"
 						},
 						{
 							"key": "Expect-CT",
@@ -108,7 +376,7 @@
 						},
 						{
 							"key": "Report-To",
-							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=aarO8qjlaT3JqfLd01G41RfcI81RW3VjXuJqew7L9yDu8xxfPuowXhC8fq5Df8HgAvuvx%2FZNQXOGgwV6OGr2%2F%2FqEVTBotNDoAAT0raRnbM4VHinqpyJtsKpLCCE%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=PYSi%2BkLS6DiyIUdhkqJ0CziN2cHBSAy2Kcx1aZBJ%2BYFOshciCvTk0bzwssCGA4WwceR%2FoB7101gR6NDu%2FGFGZSxmRiCyy%2FXsY6907MsKd48HBMeEIKY7UeSlPYA%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
 						},
 						{
 							"key": "NEL",
@@ -124,7 +392,7 @@
 						},
 						{
 							"key": "CF-RAY",
-							"value": "6fe67927ec5618e8-SIN"
+							"value": "6fea33905c544667-SIN"
 						},
 						{
 							"key": "Content-Encoding",
@@ -142,15 +410,26 @@
 		},
 		{
 			"name": "Single User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/users/2",
-					"protocol": "https",
+					"raw": "{{url}}/api/users/2",
 					"host": [
-						"reqres",
-						"in"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -159,7 +438,109 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Single User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 20 Apr 2022 01:46:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"118-pbdwwFo9SKNhD3Lx5iHJyngpq00\""
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=14400"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "HIT"
+						},
+						{
+							"key": "Age",
+							"value": "6801"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=rXacd5O7yQvKRd3bP97WNjCscOCKqJhfykPAU6m9wEtdPNXld5kqKkEYsQNQipMIVW18qFdc7M1tvQ6aoZZ5zax40BHx274QC7fz%2BJPf5WrwRBpxC9swuhn%2BcLc%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "6fea34a99db34667-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"email\": \"janet.weaver@reqres.in\",\n        \"first_name\": \"Janet\",\n        \"last_name\": \"Weaver\",\n        \"avatar\": \"https://reqres.in/img/faces/2-image.jpg\"\n    },\n    \"support\": {\n        \"url\": \"https://reqres.in/#support-heading\",\n        \"text\": \"To keep ReqRes free, contributions towards server costs are appreciated!\"\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "Single User Not found",
@@ -188,11 +569,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/unknown",
-					"protocol": "https",
+					"raw": "{{url}}/api/unknown",
 					"host": [
-						"reqres",
-						"in"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -208,11 +587,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/unknown/2",
-					"protocol": "https",
+					"raw": "{{url}}/api/unknown/2",
 					"host": [
-						"reqres",
-						"in"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -229,11 +606,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/unknown/23",
-					"protocol": "https",
+					"raw": "{{url}}/api/unknown/23",
 					"host": [
-						"reqres",
-						"in"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -342,6 +717,19 @@
 		},
 		{
 			"name": "Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -355,11 +743,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://reqres.in/api/users",
-					"protocol": "https",
+					"raw": "{{url}}/api/users",
 					"host": [
-						"reqres",
-						"in"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -375,7 +761,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Sreena\",\r\n    \"job\":  \"API Tester\"\r\n}",
+							"raw": "{\r\n    \"name\": \"keith\",\r\n    \"job\":  \"API Tester\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -467,6 +853,19 @@
 		},
 		{
 			"name": "Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"zion resident\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -480,11 +879,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://reqres.in/api/users/358",
-					"protocol": "https",
+					"raw": "{{url}}/api/users/358",
 					"host": [
-						"reqres",
-						"in"
+						"{{url}}"
 					],
 					"path": [
 						"api",
@@ -602,9 +999,42 @@
 		},
 		{
 			"name": "Update PATCH",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/users/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
 			},
 			"response": [
 				{
@@ -706,14 +1136,225 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"name\": \"morpheus\",\n    \"job\": \"zion resident\",\n    \"updatedAt\": \"2022-04-19T15:13:16.749Z\"\n}"
+				},
+				{
+					"name": "Update PATCH",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"morpheus123\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 23 Apr 2022 07:58:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"3d-TfaZo+jKi1CdOzK+M4nNnNp2F3w\""
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=LuyWIFQQIklYIEg0WqD6Heo5NN51DwyUwX9f3w8ZR7rFn93oEnEgnKngzG%2F1E1EYEeN9fsC5%2BcXn3NSp2CVO5v7fHD2QJbNiMD0Q22XqBgLXios2NlVJXS2Aato%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "70050d675eae4b7a-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"name\": \"morpheus123\",\n    \"updatedAt\": \"2022-04-23T07:58:08.820Z\"\n}"
+				},
+				{
+					"name": "Update PATCH",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"PartialUpdate\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 23 Apr 2022 08:00:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"3f-PwEKVvvL3Xwi/975l8Nt9IUAFcI\""
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=if8sF1zybDO9uazsVbqI6X4dXyDC4ua7i8rrDoAXO%2FjLG3NvWkl32wu092gar0l6elouHZ%2BPJ4ZGfWb0WvG%2FS9nqfcvXeHFsOhLGiI4iuZwCiCAKvQA%2BxNBhEbw%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "70051082f8074b7a-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"PartialUpdate\",\n    \"updatedAt\": \"2022-04-23T08:00:16.103Z\"\n}"
 				}
 			]
 		},
 		{
 			"name": "Delete",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/users/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
 			},
 			"response": [
 				{
@@ -804,10 +1445,58 @@
 		{
 			"name": "Register Succesfull",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"abc@gmail.com\",\r\n    \"password\": \"pistol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						""
+					]
+				}
 			},
 			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/users?delay=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "delay",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "userid",
+			"value": "2"
 		}
 	]
 }
