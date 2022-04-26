@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "2dcdefcb-b502-41ce-89fa-2ff51435cd34",
+		"name": "Date",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://date.jsontest.com/",
+					"protocol": "http",
+					"host": [
+						"date",
+						"jsontest",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
