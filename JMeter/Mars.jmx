@@ -353,7 +353,7 @@
         </ModuleController>
         <hashTree/>
       </hashTree>
-      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="false"/>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="true"/>
       <hashTree>
         <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Sign In" enabled="true"/>
         <hashTree>
